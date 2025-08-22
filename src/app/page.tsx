@@ -91,13 +91,21 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
+      if (Storage.get<string>("TeamsEko")) {
+        setStatus({
+          message: "Already Logged in.",
+          code: 1,
+        });
+        return;
+      }
+
       const inTeams = await initTeams();
       if (!inTeams) {
         setStatus({
           message: "This page is not running inside Microsoft Teams.",
           code: 0,
         });
-        LoginHandler("Demo@user.com");
+        // LoginHandler("Demo@user.com");
         return;
       }
 
@@ -121,14 +129,7 @@ export default function Home() {
             code: 0,
           });
 
-          if (!Storage.get<string>("TeamsEko")) {
-            LoginHandler(emailParsed);
-          } else {
-            setStatus({
-              message: "Already Logged in.",
-              code: 1,
-            });
-          }
+          LoginHandler(emailParsed);
 
           // if (!Cookies.get("TeamsEko")) {
           //   LoginHandler(emailParsed);
