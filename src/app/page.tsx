@@ -36,6 +36,7 @@ export default function Home() {
           }
 
           const resp = await login(email, encryptedPassword);
+          console.log(resp);
 
           if (resp?.status !== 1 && resp?.message !== "OK") {
             setStatus({
@@ -85,12 +86,9 @@ export default function Home() {
     [login, handleOTPEntered]
   );
 
-  // useEffect(() => {
-  //   Storage.deleteBeforeExpiry("TeamsEko");
-  // }, []);
-
   useEffect(() => {
     (async () => {
+      if (status.message !== "Initializing…") return;
       if (Storage.get<string>("TeamsEko")) {
         setStatus({
           message: "Already Logged in.",
@@ -105,7 +103,7 @@ export default function Home() {
           message: "This page is not running inside Microsoft Teams.",
           code: 0,
         });
-        // LoginHandler("Demo@user.com");
+        LoginHandler("yash.vashistha@mobifly.tech");
         return;
       }
 

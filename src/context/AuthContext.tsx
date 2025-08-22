@@ -450,7 +450,10 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
         const response = await axios.post(`${url}/login`, LoginData, {
           headers: { "X-CSRF-Token": csrf },
         });
-        if (response.data.status === 1) {
+        if (
+          response.data.status === 1 &&
+          response.data.data.result?.designation
+        ) {
           // Cookies.remove("TeamsEko");
           // localStorage.removeItem("TeamsEko");
           Storage.deleteBeforeExpiry("TeamsEko");
@@ -470,6 +473,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
             user_name: response.data.data.result?.user_name ?? "",
             user_uuid: response.data.data.result?.user_uuid ?? "",
           });
+          console.log(response);
           return { status: response.data.status, message: "OK" };
         } else if (
           response.data.status === 0 &&
