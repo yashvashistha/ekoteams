@@ -141,7 +141,13 @@ const FileModal: React.FC<UploadFilePopupProps> = ({ isOpen, onClose }) => {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">Uploaded Files</h2>
           <button onClick={onClose}>
-            <Image src="/close.svg" alt="Close" className="w-4 h-4" />
+            <Image
+              src="/close.svg"
+              alt="Close"
+              className="w-4 h-4"
+              width={10}
+              height={10}
+            />
           </button>
         </div>
         <div className="space-y-3">

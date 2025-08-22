@@ -38,7 +38,9 @@ export const useSendMessage = () => {
     try {
       // const userDetails = JSON.parse(Cookies.get("TeamsEko"));
       // const userDetails = JSON.parse(localStorage.getItem("TeamsEko"));
-      const userDetails = JSON.parse(Storage.get < string > "TeamsEko");
+      const cookie = Storage.get("TeamsEko");
+      const userDetails = JSON.parse(cookie);
+      console.log(userDetails);
 
       const token = `Bearer ${userDetails.access_token}`;
       if (!userDetails.access_token) {
