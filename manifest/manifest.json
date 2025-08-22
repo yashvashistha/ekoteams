@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.13/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.13",
+  "version": "1.0.0",
+  "id": "899f083a-2c86-4e22-87b9-c760ef2f0b15",
+  "packageName": "com.ekoai.wordaddin",
+  "developer": {
+    "name": "Mobifly",
+    "websiteUrl": "https://2a2ff30e3ad3.ngrok-free.app",
+    "privacyUrl": "https://2a2ff30e3ad3.ngrok-free.app/privacy",
+    "termsOfUseUrl": "https://2a2ff30e3ad3.ngrok-free.app/terms"
+  },
+  "name": {
+    "short": "Eko.AI",
+    "full": "Eko.AI bot for Microsoft Teams"
+  },
+  "description": {
+    "short": "Eko.AI Teams Bot",
+    "full": "This is a Add-in used for Teams Chat Bot"
+  },
+  "accentColor": "#60A18E",
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://2a2ff30e3ad3.ngrok-free.app/index.html",
+      "canUpdateConfiguration": true,
+      "scopes": ["team"]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "ssoTab",
+      "name": "Silent SSO Demo",
+      "contentUrl": "https://2a2ff30e3ad3.ngrok-free.app",
+      "scopes": ["personal"]
+    }
+  ],
+  "validDomains": ["2a2ff30e3ad3.ngrok-free.app", "ngrok-free.app"],
+  "webApplicationInfo": {
+    "id": "eaac5594-76b8-4477-b76f-66761b0f7841",
+    "resource": "api://2a2ff30e3ad3.ngrok-free.app/eaac5594-76b8-4477-b76f-66761b0f7841"
+  }
+}
