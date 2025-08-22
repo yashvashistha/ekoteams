@@ -452,7 +452,8 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
         });
         if (
           response.data.status === 1 &&
-          response.data.data.result?.designation
+          response.data.data.result.message ==
+            "OTP sent to your registered email id"
         ) {
           // Cookies.remove("TeamsEko");
           // localStorage.removeItem("TeamsEko");
